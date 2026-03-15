@@ -221,7 +221,7 @@
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">com.partner.frontend.impl.doc:order</value>
+        <value name="rec_ref">com.partner.frontend.doc:order</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -231,7 +231,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/order;4;0;com.partner.frontend.impl.doc:order" TO="/document;2;0">
+<MAPCOPY FROM="/order;4;0;com.partner.frontend.doc:order" TO="/document;2;0">
 </MAPCOPY>
 </MAP>
 </INVOKE>
@@ -401,7 +401,7 @@
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">com.partner.frontend.impl.doc:order</value>
+        <value name="rec_ref">com.partner.frontend.doc:order</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">field</value>

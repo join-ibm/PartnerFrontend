@@ -1476,5 +1476,9 @@
 </MAPSET>
 </MAP>
 </INVOKE>
+
+<EXIT FROM="$flow" SIGNAL="FAILURE" FAILURE-MESSAGE="There has been an error while trying to process your request. Try again later. Error: %lastError/error%">
+  <COMMENT></COMMENT>
+</EXIT>
 </SEQUENCE>
 </FLOW>
