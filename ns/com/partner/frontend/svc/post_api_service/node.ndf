@@ -125,6 +125,10 @@
   <value name="auditoption">1</value>
   <array name="auditfields_input" type="value" depth="2">
     <array type="value" depth="1">
+      <value>/messaging_flag;1;0</value>
+      <value>messaging_flag</value>
+    </array>
+    <array type="value" depth="1">
       <value>/order_input;4;0;com.partner.frontend.doc:order/item;1;0</value>
       <value>item</value>
     </array>
@@ -163,10 +167,6 @@
     <array type="value" depth="1">
       <value>/order_input;4;0;com.partner.frontend.doc:order/id;1;0</value>
       <value>id</value>
-    </array>
-    <array type="value" depth="1">
-      <value>/messaging_flag;1;0</value>
-      <value>messaging_flag</value>
     </array>
   </array>
   <array name="auditfields_output" type="value" depth="2">
