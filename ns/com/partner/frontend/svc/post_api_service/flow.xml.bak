@@ -300,7 +300,7 @@
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">com.partner.backend.doc:order</value>
+        <value name="rec_ref">com.partner.backend.doc:order_input</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -370,7 +370,16 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/order_input;4;0;com.partner.frontend.doc:order" TO="/order;4;0;com.partner.backend.doc:order">
+<MAPCOPY FROM="/order_input;4;0;com.partner.frontend.doc:order/id;1;0" TO="/order;4;0;com.partner.backend.doc:order_input/id;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/order_input;4;0;com.partner.frontend.doc:order/item;1;0" TO="/order;4;0;com.partner.backend.doc:order_input/item;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/order_input;4;0;com.partner.frontend.doc:order/quantity;1;0" TO="/order;4;0;com.partner.backend.doc:order_input/quantity;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/order_input;4;0;com.partner.frontend.doc:order/VATNumber;1;0" TO="/order;4;0;com.partner.backend.doc:order_input/VATNumber;1;0">
 </MAPCOPY>
 </MAP>
 
@@ -399,7 +408,7 @@
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">com.partner.backend.doc:order</value>
+        <value name="rec_ref">com.partner.backend.doc:order_input</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -529,17 +538,23 @@
 
   <!-- nodes -->
 
-<MAPDELETE FIELD="/order_completed;4;0;com.partner.backend.doc:order">
-</MAPDELETE>
-
-<MAPCOPY FROM="/order_completed;4;0;com.partner.backend.doc:order" TO="/order_output;4;0;com.partner.frontend.doc:order">
+<MAPCOPY FROM="/order_completed;4;0;com.partner.backend.doc:order/id;1;0" TO="/order_output;4;0;com.partner.frontend.doc:order/id;1;0">
 </MAPCOPY>
 
-<MAPDELETE FIELD="/order_input;4;0;com.partner.frontend.doc:order">
-</MAPDELETE>
+<MAPCOPY FROM="/order_completed;4;0;com.partner.backend.doc:order/item;1;0" TO="/order_output;4;0;com.partner.frontend.doc:order/item;1;0">
+</MAPCOPY>
 
-<MAPDELETE FIELD="/order;4;0;com.partner.backend.doc:order">
-</MAPDELETE>
+<MAPCOPY FROM="/order_completed;4;0;com.partner.backend.doc:order/quantity;1;0" TO="/order_output;4;0;com.partner.frontend.doc:order/quantity;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/order_completed;4;0;com.partner.backend.doc:order/VATNumber;1;0" TO="/order_output;4;0;com.partner.frontend.doc:order/VATNumber;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/order_completed;4;0;com.partner.backend.doc:order/Contact;2;0" TO="/order_output;4;0;com.partner.frontend.doc:order/Contact;2;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/order_completed;4;0;com.partner.backend.doc:order/Price;2;0" TO="/order_output;4;0;com.partner.frontend.doc:order/Price;2;0">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -716,6 +731,39 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">order</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">com.partner.backend.doc:order_input</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">order_input</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">com.partner.frontend.doc:order</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -747,6 +795,26 @@
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">com.partner.frontend.doc:order</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">order_completed</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">com.partner.backend.doc:order</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -781,6 +849,148 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+
+<MAP TIMEOUT="" MODE="STANDALONE">
+  <COMMENT>CLEANING</COMMENT>
+  <MAPTARGET>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPTARGET>
+  <MAPSOURCE>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">order</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">com.partner.backend.doc:order_input</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">order_input</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">com.partner.frontend.doc:order</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">messaging_flag</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+          <value>UM</value>
+          <value>MQ</value>
+          <value>kafka</value>
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">order_output</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">com.partner.frontend.doc:order</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">order_completed</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">com.partner.backend.doc:order</value>
+      </record>
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPSOURCE>
+
+  <!-- nodes -->
+
+<MAPDELETE FIELD="/order_completed;4;0;com.partner.backend.doc:order">
+</MAPDELETE>
+
+<MAPDELETE FIELD="/messaging_flag;1;0">
+</MAPDELETE>
+
+<MAPDELETE FIELD="/order_input;4;0;com.partner.frontend.doc:order">
+</MAPDELETE>
+
+<MAPDELETE FIELD="/order;4;0;com.partner.backend.doc:order_input">
+</MAPDELETE>
+</MAP>
 </SEQUENCE>
 
 <SEQUENCE TIMEOUT="" EXIT-ON="FAILURE" FORM="CATCH">
